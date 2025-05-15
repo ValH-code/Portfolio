@@ -59,7 +59,7 @@ export default function Header() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="pl-8 md:pl-16" // Augmentation du padding pour plus de décalage
+          className="pl-8 md:pl-16"
         >
           <Link 
             href="#accueil" 

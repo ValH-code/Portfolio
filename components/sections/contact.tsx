@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import React, { useState } from 'react';
@@ -49,21 +50,41 @@ export default function Contact() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     
-    // Simulate sending the form
-    setTimeout(() => {
-      console.log(values);
-      setIsSubmitting(false);
-      form.reset();
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
       
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Une erreur est survenue lors de l\'envoi du message.');
+      }
+      
+      form.reset();
       toast({
         title: "Message envoyé !",
         description: "Merci pour votre message. Je vous répondrai dans les plus brefs délais.",
         duration: 5000,
       });
-    }, 1000);
+    } catch (error) {
+      console.error('Erreur:', error);
+      toast({
+        title: "Erreur",
+        description: "Une erreur est survenue lors de l'envoi du message. Veuillez réessayer.",
+        variant: "destructive",
+        duration: 5000,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -98,7 +119,7 @@ export default function Contact() {
                   whileHover={{ x: 10 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  <div className="p-3 rounded-full bg-primary/10 text-primary mt-1 transition-colors duration-300 group-hover/item:bg-primary/20">
+                  <div className="p-3 rounded-full bg-primary/10 text-primary mt-1 transition-colors duration-300 group-hover:item:bg-primary/20">
                     <Mail className="h-5 w-5" />
                   </div>
                   <div>
@@ -106,6 +127,10 @@ export default function Contact() {
                     <a 
                       href="mailto:pro.valentin.hamon@gmail.com" 
                       className="text-muted-foreground hover:text-primary transition-colors"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.location.href = "mailto:pro.valentin.hamon@gmail.com";
+                      }}
                     >
                       pro.valentin.hamon@gmail.com
                     </a>
@@ -117,14 +142,14 @@ export default function Contact() {
                   whileHover={{ x: 10 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  <div className="p-3 rounded-full bg-primary/10 text-primary mt-1 transition-colors duration-300 group-hover/item:bg-primary/20">
+                  <div className="p-3 rounded-full bg-primary/10 text-primary mt-1 transition-colors duration-300 group-hover:item:bg-primary/20">
                     <AtSign className="h-5 w-5" />
                   </div>
                   <div>
                     <h4 className="font-medium">Réseaux Sociaux</h4>
                     <p className="text-muted-foreground">
                       <a 
-                        href="https://github.com" 
+                        href="https://github.com/ValH-code" 
                         target="_blank" 
                         rel="noopener noreferrer" 
                         className="hover:text-primary transition-colors"
@@ -133,7 +158,7 @@ export default function Contact() {
                       </a>
                       {' • '}
                       <a 
-                        href="https://linkedin.com" 
+                        href="www.linkedin.com/in/valh-code" 
                         target="_blank" 
                         rel="noopener noreferrer" 
                         className="hover:text-primary transition-colors"
@@ -149,7 +174,7 @@ export default function Contact() {
                   whileHover={{ x: 10 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  <div className="p-3 rounded-full bg-primary/10 text-primary mt-1 transition-colors duration-300 group-hover/item:bg-primary/20">
+                  <div className="p-3 rounded-full bg-primary/10 text-primary mt-1 transition-colors duration-300 group-hover:item:bg-primary/20">
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>

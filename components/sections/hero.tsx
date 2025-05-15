@@ -81,11 +81,6 @@ export default function Hero() {
               Voir mes projets
             </Link>
           </Button>
-          <Button asChild variant="outline" size="lg">
-            <Link href="https://bibliotracker.fr" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-              BiblioTracker <ExternalLink className="h-4 w-4" />
-            </Link>
-          </Button>
         </motion.div>
       </div>
 

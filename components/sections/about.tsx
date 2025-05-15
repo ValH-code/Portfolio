@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Heart, Code, Rocket } from 'lucide-react';
