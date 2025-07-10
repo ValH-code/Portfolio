@@ -11,6 +11,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import bibliotrackerImage from '@/public/images/projects/bibliotracker.png';
 import projet1Image from '@/public/images/projects/EnCours.png';
+import todolistImage from '@/public/images/projects/todolist.png';
+import recipeImage from '@/public/images/projects/recipe.png';
 
 const projects = [
 	{
@@ -28,7 +30,39 @@ const projects = [
 			status: 'En ligne',
 			progress: '100%',
 		},
-    githubUrl: undefined,
+		githubUrl: undefined, // Pas de code source disponible pour ce projet
+	},
+	{
+		id: 'livre-recettes',
+		title: 'Livre de Recettes',
+		description:
+			'Application web moderne pour découvrir et organiser des recettes culinaires avec un système de filtres et de tri avancé.',
+		longDescription:
+			'Une plateforme complète de recettes offrant une collection de plats traditionnels et modernes. Avec un système de filtrage par catégorie, difficulté et temps de préparation, cette application permet aux utilisateurs de trouver facilement la recette parfaite.',
+		image: recipeImage,
+		tags: ['Next.js', 'React', 'TypeScript', 'Tailwind', 'Responsive'],
+		liveUrl: 'https://livrederecette.netlify.app',
+		stats: {
+			status: 'En ligne',
+			progress: '100%',
+		},
+		githubUrl: 'https://github.com/ValH-code/Recipe',
+	},
+	{
+		id: 'gestionnaire-taches',
+		title: 'Gestionnaire de Tâches',
+		description:
+			'Application intuitive de gestion des tâches permettant d\'organiser et suivre efficacement ses activités quotidiennes.',
+		longDescription:
+			'Un outil simple et efficace pour la gestion des tâches quotidiennes. Cette application permet de créer, modifier, marquer comme complétées et supprimer des tâches avec une interface utilisateur moderne et responsive.',
+		image: todolistImage,
+		tags: ['Next.js', 'React', 'Local Storage', 'Tailwind', 'PWA'],
+		liveUrl: 'https://listedetaches.netlify.app',
+		stats: {
+			status: 'En ligne',
+			progress: '100%',
+		},
+		githubUrl: 'https://github.com/ValH-code/ToDoList',
 	},
 	{
 		id: 'coming-soon-1',
@@ -42,21 +76,6 @@ const projects = [
 		stats: {
 			status: 'En cours',
 			progress: '60%',
-		},
-		githubUrl: undefined,
-	},
-	{
-		id: 'coming-soon-2',
-		title: 'À venir',
-		description:
-			'Un projet innovant qui sera bientôt dévoilé. Les détails seront partagés dans un futur proche.',
-		longDescription:
-			'Une nouvelle solution créative qui repoussera les limites de la technologie web moderne. Restez connectés pour découvrir ce projet unique.',
-		image: projet1Image,
-		tags: ['Next.js', 'React', 'API', 'Cloud'],
-		stats: {
-			status: 'En cours',
-			progress: '30%',
 		},
 		githubUrl: undefined,
 	},
