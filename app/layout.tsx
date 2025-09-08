@@ -16,6 +16,9 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Valh-Code | Développeur Full Stack',
   description: 'Portfolio de Valentin, développeur full stack web et mobile.',
+  verification: {
+    google: 'fUzIgeJ2t5iI6vmoMSjwV3vVrAmugYiKPY-levZ7tdw'
+  },
   icons: {
     icon: [
       { url: '/favicon/favicon.ico' },
