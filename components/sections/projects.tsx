@@ -13,8 +13,41 @@ import bibliotrackerImage from '@/public/images/projects/bibliotracker.png';
 import projet1Image from '@/public/images/projects/EnCours.png';
 import todolistImage from '@/public/images/projects/todolist.png';
 import recipeImage from '@/public/images/projects/recipe.png';
+import studioLaDesignImage from '@/public/images/projects/studio-la-design.png';
 
 const projects = [
+	{
+		id: 'studio-la-design',
+		title: 'Studio LA Design',
+		description:
+			'Site vitrine pour un studio d\'architecture d\'intérieur, conçu pour mettre en valeur les réalisations et l\'univers de la créatrice.',
+		longDescription:
+			'Site vitrine sur-mesure réalisé pour une architecte d\'intérieur. Design soigné, navigation fluide et présentation immersive des projets, avec une mise en avant des réalisations et des prestations. Entièrement responsive.',
+		image: studioLaDesignImage,
+		tags: ['Next.js', 'React', 'Tailwind', 'Responsive', 'Site vitrine'],
+		liveUrl: 'https://studioladesign.fr',
+		featured: true,
+		stats: {
+			status: 'En ligne',
+			progress: '100%',
+		},
+		githubUrl: undefined, // Projet client, code source privé
+	},
+	{
+		id: 'backoffice-reseau-social',
+		title: 'Back-office — Réseau Social',
+		description:
+			'Interface d\'administration pour un grand réseau social français reliant créateurs de contenu et abonnés.',
+		longDescription:
+			'Outil d\'administration complet pour une plateforme sociale française à forte audience, mettant en relation créateurs de contenu et leurs abonnés. Gestion centralisée de nombreux aspects de la plateforme. Projet professionnel en cours — détails confidentiels.',
+		image: projet1Image,
+		tags: ['Node.js', 'TypeScript', 'Back-office'],
+		stats: {
+			status: 'En cours',
+			progress: '70%',
+		},
+		githubUrl: undefined, // Projet confidentiel
+	},
 	{
 		id: 'bibliotracker',
 		title: 'BiblioTracker',
